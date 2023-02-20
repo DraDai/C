@@ -4,3 +4,48 @@ int main()
 	printf("Hellow word");
 	return 0;
 }
+
+
+int main()
+{
+	float x, y, z;
+	scanf("%f%f",&x,&y);
+	z = x + y;
+		printf("%.1f", z);
+	return 0;
+}
+
+
+
+int main()
+{
+	int a, b, c, d;
+	scanf("%d%d",&a,&b);
+	c = (a + b) * 2;
+	d = (a * b);
+	printf("%d\n", c);
+	printf("%d\n", d);
+	return 0;
+}
+
+int main()
+{
+	int a, b;
+	scanf("%d%d", &a, &b);
+	if (a > b)
+		printf("%d", a);
+	else
+		printf("%d", b);
+	return 0;
+}
+
+
+int main()
+{
+	double r, c, s;
+	scanf("%lf", &r);
+	c = 3.14 * 2 * r;
+	s = 3.14 * (r*r);
+	printf("%lf %lf", c, s);
+	return 0;
+}
