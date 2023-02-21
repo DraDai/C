@@ -49,3 +49,23 @@ int main()
 	printf("%lf %lf", c, s);
 	return 0;
 }
+
+
+
+#include <stdio.h>//比较三个整数大小
+int main()
+{
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a > b)
+		if (a > c)
+			printf("%d", a);
+		else
+			printf("%d", c);
+	else
+		if (b > c)
+			printf("%d", b);
+		else
+			printf("%d", c);
+	return 0;
+}
