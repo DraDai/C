@@ -69,3 +69,12 @@ int main()
 			printf("%d", c);
 	return 0;
 }
+
+
+#include <stdio.h>//转义字符的使用
+int main()
+{
+	printf("ab\tcd\n");
+	printf("12345678\012student \x42\n");//\012相当于ASCII中的10，而\x42也是如此。
+	return 0;
+}
