@@ -142,3 +142,46 @@ int main()
 	printf("e^%.2lf=%.2lf\n%.2lf^%.2lf=%.2lf",a, A,b,c, B);
 	return 0;
 }
+
+
+
+#include <stdio.h>//计算lnX和logX
+#include <math.h>
+int main()
+{
+	double x, y, a, b;
+	scanf("%lf%lf", &x, &y);
+	a = log(x);
+	b = log10(y);
+	printf("ln(%.2lf)=%.2lf\nlog(%.2lf)=%.2lf", x, a, y, b);
+	return 0;
+}
+
+
+#include <stdio.h>//计算根号x
+#include <math.h>
+int main()
+{
+	double x, y;
+	scanf("%lf", &x);
+	y = sqrt(x);
+	printf("根号%.2lf=%.2lf", x, y);
+	return 0;
+}
+
+
+
+
+
+#include <stdio.h>//用当前时间机器做种子，产生4个随机数
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+	srand(time(NULL));
+	printf("%6d\n", rand());
+	printf("%6d\n", rand());
+	printf("%6d\n", rand());
+	printf("%6d\n", rand());
+	return 0;
+}
