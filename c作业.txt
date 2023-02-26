@@ -185,3 +185,31 @@ int main()
 	printf("%6d\n", rand());
 	return 0;
 }
+
+
+
+
+#include <stdio.h>//输出单个字符
+int main()
+{
+	char c1 = 'A', c2 = 65, c3 = '\x41';
+	putchar(c1);
+	putchar(c2);
+	putchar(c3);
+	putchar('\n');
+	putchar(36);
+	putchar('3');
+	return 0;
+}
+
+
+
+
+#include <stdio.h>//利用getchar函数输入一个字符
+int main()
+{
+	char ch;
+	ch = getchar();//将输入的字符赋予ch
+	putchar(ch);
+	return 0;
+}
