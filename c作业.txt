@@ -213,3 +213,20 @@ int main()
 	putchar(ch);
 	return 0;
 }
+
+
+
+
+#include <stdio.h>\\精度损耗问题
+int main()
+{
+	double x = 3.6;
+	int i;
+	i = (int)x;
+	printf("x=%lf,i=%d", x, i);
+	return 0;
+}
+
+
+
+
