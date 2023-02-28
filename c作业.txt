@@ -264,3 +264,17 @@ int main()
 	printf("i=%d,j=%d\n", i, j);
 	return 0;
 }
+
+
+
+#include<stdio.h>//位运算实例
+int main()
+{
+	unsigned a, b;
+	printf("input a number: ");
+	scanf("%d", &a);
+	b = a >> 5;
+	b = b & 15;
+	printf("a = % d, b = % d\n", a, b);
+	return 0;
+}
