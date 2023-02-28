@@ -229,4 +229,27 @@ int main()
 
 
 
+#include<stdio.h>//不完全计算问题
+int main()
+{
+	int a, b, c, d;
+	a = 0;
+	b = 1;
+	c = a++ && b++;
+	d = a++ || b++;
+	printf("a=%d,b=%d,c=%d,d=%d\n", a, b, c, d);
+	return 0;
+}
 
+
+
+#include<stdio.h>//比较两个数大小
+int main()
+{
+	double a, b, max;
+	printf("Please input two real numbers:");
+	scanf("%lf%lf", &a, &b);
+	max = (a > b) ? a : b;
+	printf("max=%lf\n", max);
+	return 0;
+}
