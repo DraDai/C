@@ -253,3 +253,14 @@ int main()
 	printf("max=%lf\n", max);
 	return 0;
 }
+
+
+
+#include<stdio.h>//逗号表达式的实例
+int main()
+{
+	int i, j;
+	j = (i = 2, i++, i++);
+	printf("i=%d,j=%d\n", i, j);
+	return 0;
+}
