@@ -278,3 +278,82 @@ int main()
 	printf("a = % d, b = % d\n", a, b);
 	return 0;
 }
+
+
+
+#include<stdio.h>//输入任意两个整数，求他们的和及平均值。
+#include<math.h>
+int main()
+{
+	int a, b, sum;
+	double aver;
+	printf("请输入两个整数：");
+	scanf("%d%d", &a, &b);
+	sum = a + b;
+	aver = sum / 2.0;
+	printf("sum = %d\naver = %.2lf", sum, aver);
+	return 0; 
+}
+
+
+#include<stdio.h>//给定一个三位数整数，分别输出它的个位，十位和百位
+#include<math.h>
+int main()
+{
+	int num, m1, m2, m3;
+	printf("请输入一个三位数整数：");
+	scanf("%d", &num);
+	m1 = num / 100;//百位
+	m2 = num / 10 % 10;//十位
+	m3 = num % 10 % 10;//个位
+	printf("百位: %d,十位: %d,个位: %d", m1, m2, m3);
+	return 0; 
+}
+
+
+
+
+#include<stdio.h>//取一个16位二进制数a的7~4位
+#include<math.h>
+int main()
+{
+	int a, b;
+	printf("输入一个整数：");
+	scanf("%d", &a);
+	a = a >> 4;
+	b = ~(~0 << 4);//设置一个后四位都为1的数
+	a = a & b;//清掉a的后四位前的1
+	printf("%d", a);
+	return 0; 
+}
+
+
+
+#include<stdio.h>//以保证a不等于0，且有两个不同的根，求ax^2+bx+c=0的根
+#include<math.h>
+int main()
+{
+	double x1, x2, a, b, c, d;
+	printf("请分别输入三个系数a,b,c的值");
+	scanf("%lf%lf%lf", &a, &b, &c);
+	d = b * b - 4 * a * c;
+	x1 = (-b + sqrt(d)) / (2 * a);
+	x2 = (-b - sqrt(d)) / (2 * a);
+	printf("x1 = %.2lf\nx2 = %.2lf", x1, x2);
+	return 0; 
+}
+
+
+
+
+#include<stdio.h>//输入大写字母，输出小写字母
+int main()
+{
+	char c;
+	printf("输入一个大写字母: ");
+	c = getchar();
+	if ('A' <= c && c <= 'Z')
+		c = c + 32;//小写字母的ASCII值比大写的大32
+	printf("%c\n", c);
+	return 0; 
+}
