@@ -357,3 +357,41 @@ int main()
 	printf("%c\n", c);
 	return 0; 
 }
+
+
+#include<stdio.h>//输入两个数，按升序输出这两个数
+int main()
+{
+	double a, b, t;
+	printf("输入两个数：");
+	scanf("%lf%lf", &a, &b);
+	if (a > b)
+	{
+		t = a;
+		a = b;
+		b = t;//交换a和b
+	}
+	printf("%.2lf  %.2lf", a, b);
+	return 0; 
+}
+
+
+
+#include<stdio.h>//判断输入的百分制成绩属于哪个分数段，进而输出相应的五级制成绩
+int main()
+{
+	int score;
+	printf("请输入你的分数：");
+	scanf("%d", &score);
+	if (score >= 90)
+		printf("A\n");
+	else if (score >= 80)
+		printf("B\n");
+	else if (score >= 70)
+		printf("C\n");
+	else if (score >= 60)
+		printf("D\n");
+	else
+		printf("E\n");
+	return 0; 
+}
