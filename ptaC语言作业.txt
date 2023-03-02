@@ -36,3 +36,14 @@ int main()
 	printf("152 = %d + %d*10 + %d*100", z, y, x);
 	return 0;
 }
+
+
+#include<stdio.h>//计算明明父亲的工资
+int main()
+{
+	double a, b, c;
+	scanf("%lf%lf", &a, &b);
+	c = a * b*0.85;
+	printf("%.2lf", c);
+	return 0;
+}
