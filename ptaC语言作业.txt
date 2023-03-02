@@ -21,3 +21,18 @@ int main()
 	printf("f(%.2lf) = %.2lf", x, y);
 	return 0;
 }
+
+
+
+
+
+#include<stdio.h>//计算华氏温度
+int main()
+{
+	int a = 152, x, y, z;
+	x = a / 100;//百位数字
+	y = a % 100 / 10;//十位数字
+	z = a % 10;//个位数字
+	printf("152 = %d + %d*10 + %d*100", z, y, x);
+	return 0;
+}

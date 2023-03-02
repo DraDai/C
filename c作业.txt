@@ -395,3 +395,106 @@ int main()
 		printf("E\n");
 	return 0; 
 }
+
+
+#include<stdio.h>//在if分支中内嵌不带else的if语句
+int main()
+{
+	double x, y;
+	scanf("%lf", &x);
+	if (x > 0)
+	{//这里打上大括号是为了防止嵌套的if与else配对
+		if (x >= 50)
+			y = x;
+	}
+	else
+		y = 0;
+	printf("x = %lf,y = %lf\n", x, y);
+	return 0;
+}
+
+
+#include<stdio.h>//switch语句：输入五级制语句，输出相应的百分制成绩段
+int main()
+{
+	char grade;
+	grade = getchar();
+	grade = (grade >='a' && grade <= 'z' ? grade - 32 : grade);
+	switch (grade)//switch语句，括号内写一个表达式
+	{
+	case'A':
+		printf("90~100\n");//如果grade是A，则打印这个。后面同理
+		break;//结束语句，如果有break就停止switch的执行。
+	case'B':
+		printf("80~89\n");
+		break;
+	case'C':
+		printf("70~79");
+		break;
+	case'D':
+		printf("60~69\n");
+	case'E':
+		printf("<60\n");
+	default://结束语句，如果case都没用就执行此语句
+		printf("error\n");
+	}
+	return 0;
+}
+
+
+#include<stdio.h>//switch语句：输入百分制语句，输出相应的五级制成绩段
+int main()
+{
+	int score;
+	printf("输入您的分数：");
+	scanf("%d", &score);
+	switch (score / 10)
+	{
+	case 10:case 9:
+		printf("A\n");
+		break;
+	case 8:
+		printf("B\n");
+		break;
+	case 7:
+		printf("C\n");
+		break;
+	case 6:
+		printf("D\n");
+		break;
+	default:
+		printf("E\n");
+	}
+	return 0;
+}
+
+
+
+#include<stdio.h>//编写一个计算器程序
+int main()
+{
+	double a, b;
+	char c;
+	printf("请输入计算式: ");
+	scanf("%lf%c%lf", &a, &c, &b);
+	switch (c)
+	{
+	case '+':
+		printf("%lf", a + b);
+		break;
+	case'-':
+		printf("%lf", a - b);
+		break;
+	case'*':
+		printf("%lf", a * b);
+		break;
+	case'/':
+		if (b == 0)
+			printf("你不能这么写");
+		else
+			printf("%lf", a / b);
+	default:
+		printf("你写的啥");
+	}
+	return 0;
+}
