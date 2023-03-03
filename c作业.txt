@@ -498,3 +498,119 @@ int main()
 	}
 	return 0;
 }
+
+
+
+#include<stdio.h>//判断输入的字符类型
+int main()
+{
+	char a;
+	printf("请输入一个字符：");
+	a = getchar();
+	if (a >= '0' && a <= '9')
+		printf("这是数字类型字符。\n");
+	else if (a >= 'A' && a <= 'Z')
+		printf("这是大写字母。\n");
+	else if (a >= 'a' && a <= 'z')
+		printf("这是小写字母");
+	else
+		printf("程序错误，请重新输入。\n");
+	return 0;
+}
+
+
+#include<stdio.h>//输入三边长，求三角形面积
+#include<math.h>
+int main()
+{
+	double a, b, c, area, s;
+	scanf("%lf%lf%lf", &a, &b, &c);
+	if (a + b > c && b + c > a && a + c > b)
+	{
+		s = (a + b + c) / 2;
+		area = sqrt(s * (s - a) * (s - b) * (s - c));
+		printf("area = %7.2lf\n", area);
+	}
+	else
+		printf("格式错误\n");
+	return 0;
+}
+
+
+
+#include<stdio.h>//输入三个整数，输出最大的数和最小的数
+#include<math.h>
+int main()
+{
+	int a, b, c, max, min;
+	scanf("%d%d%d", &a, &b, &c);
+	max = a > b ? a : b;
+	min = a < b ? a : b;
+	if (max < c)
+		max = c;
+	else if (min > c)
+		min = c;
+	printf("max = %d,min = %d", max, min);
+	return 0;
+}
+
+
+#include<stdio.h>//计算a*x*2+b*x+c=0的实数根
+#include<math.h>
+int main()
+{
+	double a, b, c, d, x1, x2,x;
+	scanf("%lf%lf%lf", &a, &b, &c);
+	d = b * 2 - 4 * a * c;
+	if (a == 0)
+		if (b == 0)
+			if (c == 0)
+				printf("此方程有无穷实数根。\n");
+			else
+				printf("此方程无解。\n");
+		else
+		{
+			x = -c / b;
+			printf("x = %.2lf", x);
+		}
+	else
+		if (d >= 0)
+		{
+			x1 = (-b + sqrt(d)) / (2 * a);
+			x2 = (-b - sqrt(d)) / (2 * a);
+			printf("x1 = %.2lf,x2 = %.2lf", x1, x2);
+		}
+		else
+			printf("此公式无实数根。\n");
+	return 0;
+}
+
+
+
+#include<stdio.h>//while实例:计算1+2+3……+100的和
+int main()
+{
+	int i = 1, sum = 0;//设置循环变量i和迭代变量sum
+	while (i <= 100)//循环条件，决定了循环是否进行
+	{//循环体语句，既可以是单个语句，也可以是复合语句
+		sum = sum + i;
+		i++;
+	}
+	printf("sum = %d", sum);
+	return 0;
+}
+
+
+#include<stdio.h>//计算n的阶乘
+int main()
+{
+	int i = 1, p = 1, n;
+	scanf("%d", &n);
+	while (i <= n)
+	{
+		p *= i;
+		i++;
+	}
+	printf("n! = %d", p);
+	return 0;
+}
