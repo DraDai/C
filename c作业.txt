@@ -629,3 +629,51 @@ int main()
 	printf("%d", p);
 	return 0;
 }
+
+
+#include<stdio.h>
+int main()
+{
+	int s = -1, i = 2;
+	double p = 1.0, pi;
+	do
+	{
+		p += s / (i + 1.0);
+		i+=2;
+		s = -s;
+		pi = 1.0/ (i + 1);
+	} while (pi >= 1E-6);
+	p *= 4;
+	printf("%lf", p);
+	return 0;
+}
+
+
+
+#include<stdio.h>//求1！+2！+3！+……+n！的值
+int main()
+{
+	int i;
+	double p, sum;
+	for (i = 2, p = 1, sum = 1;i <= 10;i++)
+	{
+		p *= i;
+		sum += p;
+	}
+	printf("%lf", sum);
+	return 0;
+}
+
+
+
+
+#include<stdio.h>//统计从键盘输入一行字符的个数，以回车结束
+int main()
+{
+	int n;
+	char c;
+	printf("请输入一段字符：");
+	for(n = 0;(c=getchar())!='\n';n++);
+	printf("%d", n);
+	return 0;
+}
