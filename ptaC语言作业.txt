@@ -47,3 +47,85 @@ int main()
 	printf("%.2lf", c);
 	return 0;
 }
+
+
+#include<stdio.h>//计算摄氏度
+int main()
+{
+	int lo, up,i;
+	double C;
+	scanf("%d %d", &lo, &up);
+	if (lo >= up)
+		printf("Invalid.");
+	else
+	{
+		printf("fahr celsius\n");
+		for (i = lo;i <= up;i++)
+		{
+			C = 5 * (i - 32) / 9.0;
+			printf("%4d%6.1lf\n", i, C);
+		}
+	}
+	return 0;
+}
+
+
+#include<stdio.h>//计算n的阶乘
+int main()
+{
+	int i, n;
+	double p;
+	scanf("%d", &n);
+	for (i = 2, p = 1;i <= n;i++)
+	{
+		p *= i;
+	}
+	printf("product = %.0lf", p);
+	return 0;
+}
+
+
+#include<stdio.h>//计算1到n的和
+int main()
+{
+	int i,n;
+	long p;
+	scanf("%d", &n);
+	for (i = 2, p = 1;i <= n;i++)
+		p += i;
+	printf("sum = %d", p);
+	return 0;
+}
+
+
+
+#include<stdio.h>//计算1到n的和
+int main()
+{
+	int i, n;
+	double p,s;
+	scanf("%d", &n);
+	for (i = 2, p = 1, s = -1.0;i <= n;i++)
+	{
+		p += s * (1.0 / (2 * (i - 1) + 1));
+		s = -s;
+	}
+	printf("sum = %.6lf", p);
+	return 0;
+}
+
+
+
+#include<stdio.h>//生成2的乘方表
+#include<math.h>
+int main()
+{
+	int n, i, p,t;
+	scanf("%d", &n);
+	for (i = 0;i <= n;i++)
+	{
+		p = pow(2, i);
+		printf("pow(2,%d) = %d\n", i, p);
+	}
+	return 0;
+}
