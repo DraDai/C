@@ -821,3 +821,61 @@ int main()
 	printf("sum = %lf\n", sum);
 	return 0;
 }
+
+
+
+#include<stdio.h>//判断一个数是不是素数
+#include<math.h>
+int main()
+{
+	int a;
+	printf("输入一个大于1的整数：");
+	scanf("%d", &a);
+	int i,j;
+	for (i = 2;i <  a;i++)
+		if (a % i == 0)
+		{
+			printf("不是素数");
+			break;
+		}
+	if (i / a == 1)
+		printf("是素数");
+	return 0;
+}
+
+
+#include<stdio.h>//使用欧几里得算法计算两个数的最大公约数
+#include<math.h>
+int main()
+{
+	int a, b, t,m;
+	printf("输入两个正整数：");
+	scanf("%d%d", &a, &b);
+	if (a < b)//判断两个数的大小
+	{
+		t = b;
+		b = a;
+		a = t;
+	}
+	do
+	{
+		m=a%b;
+		a = b;
+		b = m;
+	} while (m != 0);
+	printf("%d", a);
+	return 0;
+}
+
+
+
+#include<stdio.h>//一维数组元素的赋值与输出
+int main()
+{
+	int a[5], i;
+	for (i = 0;i < 5;i++)
+		a[i] = i + 1;
+	for (i = 0;i < 5;i++)
+		printf("%3d", a[i]);
+	return 0;
+}
