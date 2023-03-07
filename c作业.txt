@@ -709,3 +709,115 @@ int main()
 
 	return 0;
 }
+
+
+
+#include<stdio.h>//生成一个三角图像
+#include<math.h>
+int main()
+{
+	int i, j, k;
+	for (i = 8;i >= 1;i--)//控制行数
+	{
+		for (j = 1;j <= 8 - i;j++)//控制输出的空格
+			printf(" ");
+		for (k = 1;k <= 2 * i - 1;k++)//控制输出的星星
+			printf("*");
+		printf("\n");
+	}
+	return 0;
+}
+
+
+#include<stdio.h>//生成所有三位自方次幂
+#include<math.h>
+int main()
+{
+	int i, j, k,m1,m2;
+	printf("三位自方次幂");
+	for(i=1;i<=9;i++)//i不能为0，不然不是三位数
+		for(j=0;j<=9;j++)
+			for (k = 0;k <= 9;k++)
+			{
+				m1 = i * 100 + j * 10 + k;
+				m2 = i * i * i + j * j * j + k * k * k;
+				if (m1 == m2)
+					printf("%4d", m1);
+			}
+	return 0;
+}
+
+
+
+#include<stdio.h>//将数分离
+#include<math.h>
+int main()
+{
+	int m;
+	scanf("%d", &m);
+	int i, j, k, t, s;
+	i = 1;
+	s = m;
+	while (s / 10)//设定计数器，计算数的位数
+	{
+		s = s / 10;
+		i++;
+	}
+	for (j = i;j>=1;j--)//主要循环
+	{
+		k = m / pow(10, j - 1);
+		m = m - k*pow(10,j-1);
+		printf("%d ", k);
+	}
+	return 0;
+}
+
+
+#include<stdio.h>//用二分法求方程的根
+#include<math.h>
+int main()
+{
+	double c, a, b, fa, fb, fc;
+	do
+	{//验证fa*fb<0,是则跳出循环，否则重新输入
+		printf("请输入两个值：");
+		scanf("%lf%lf", &a, &b);
+		fa = ((a + 1.1) * a + 0.9) * a - 1.4;
+		fb = ((b + 1.1) * b + 0.9) * b - 1.4;
+	} while (fa * fb >= 0);
+	do//
+	{
+		c = (a + b) / 2;//找到ab的中点
+		fc= ((c + 1.1) * c + 0.9) * c - 1.4;//计算c的函数值
+		if (fc * fa > 0)//判断fc和fa之间是否有实根
+			a = c;//是则让a=c
+		else
+			b = c;//否则让b=c
+	} while (fabs(fc) >= 1e-6);//直到fc接近临界值
+	printf("一个实根为：%8.2lf\n", c);
+	return 0;
+}
+
+
+
+
+#include<stdio.h>//求多项式
+#include<math.h>
+int main()
+{
+	double sum, p, x;
+	int n, i, s;
+	printf("请输入多项式的第n项，和x的值：");
+	scanf("%d%lf", &n, &x);
+	sum = x;
+	p = x;
+	s = 1;
+	for (i = 2;i <= n;i++)//用迭代法
+	{
+		p *= x * x / (2 * i - 2) / (2 * i - 1);
+		s = -s;
+		sum += s * p;
+	}
+	printf("sum = %lf\n", sum);
+	return 0;
+}
