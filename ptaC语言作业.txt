@@ -129,3 +129,140 @@ int main()
 	}
 	return 0;
 }
+
+
+
+int main()
+{
+	int a, b, t1,t2,a1,a2,b1,b2;
+	scanf("%d%d", &a, &b);
+	a2 = a % 100;
+	a1 = (a - a2)/100;
+	b2 = b % 100;
+	b1 = (b - b2)/100;
+	if (b2 < a2)
+	{
+		t1 = b1 - 1 - a1;
+		t2 = 60 - a2 + b2;
+	}
+	else
+	{
+		t1 = b1 - a1;
+		t2 = b2 - a2;
+	}
+	printf("%02d:%02d", t1, t2);
+	return 0;
+}
+
+
+
+#include<stdio.h>//判断一个三位数是否为水仙花数
+#include<math.h>
+int main()
+{
+	int x, a, b, c,y;
+	scanf("%d", &x);
+	a = pow(x / 100,3);
+	b = pow(x % 100 / 10,3);
+	c = pow(x % 10,3);
+	y = a + b + c;
+	if (x >= 100 && x <= 999)
+		if (x == y)
+			printf("Yes");
+		else
+			printf("No");
+	else
+		printf("Invalid Value.");
+	return 0;
+}
+
+
+
+#include<stdio.h>//求前n项和
+#include<math.h>
+int main()
+{
+	int i, n;
+	double s;
+	scanf("%d", &n);
+	for (i = 2,s=1;i <= n;i++)
+	{
+		s = s + 1.0 / i;
+	}
+	printf("sum = %.6lf", s);
+	return 0;
+}
+
+
+
+#include<stdio.h>//求前n项和
+#include<math.h>
+int main()
+{
+	int i, n;
+	double s;
+	scanf("%d", &n);
+	for (i = 2,s=1;i <= n;i++)
+	{
+		s = s + 1.0 / (2 * (i - 1) + 1);
+	}
+	printf("sum = %.6lf", s);
+	return 0;
+}
+
+
+
+#include<stdio.h>//求前n项和
+#include<math.h>
+int main()
+{
+	int i, n,t;
+	double s;
+	scanf("%d", &n);
+	t = -1;
+	for (i = 2,s=1;i <= n;i++)
+	{
+		s = s + 1.0 / (3 * (i - 1) + 1)*t;
+		t = -t;
+	}
+	printf("sum = %.3lf", s);
+	return 0;
+}
+
+
+#include<stdio.h>//华氏温度转换表
+#include<math.h>
+int main()
+{
+	int low, up, i;
+	double c;
+	scanf("%d%d", &low, &up);
+	if (low > 100 || up > 100 || low > up)
+		printf("Invalid.");
+	else
+		printf("fahr celsius\n");
+	for (i = low;i <= up;i += 2)
+	{
+		c = 5.0 * (i - 32) / 9;
+		printf("%d%6.1lf\n", i, c);
+	}
+	return 0;
+}
+
+
+
+#include<stdio.h>//华氏温度转换表
+#include<math.h>
+int main()
+{
+	int m, n;
+	double p;
+	scanf("%d%d", &m, &n);
+	p = m*m + 1.0 / m;
+	for (;m < n;m++)
+	{
+		p += pow(m + 1.0, 2) + 1.0 / (m + 1);
+	}
+	printf("sum = %.6lf", p);
+	return 0;
+}
