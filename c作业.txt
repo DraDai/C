@@ -1270,3 +1270,92 @@ int main()
 
 	return 0;
 }
+
+
+
+#include<stdio.h>					//一维字符数组的引用
+
+int main()
+{
+	char a[] = { "Beijing2008" }, b[5] = { '\0' };//给数组b一个终止符
+	int i;
+
+	for (i = 0;i < 4;i++)			//输入数组b的字符串
+		b[i] = a[i + 7];
+
+	for (i = 0;i < 11;i++)				//输出数组a中的字符串
+		printf("%c", a[i]);
+
+	printf("\n");
+
+	for (i = 0;i < 4;i++)			//输出数组b
+		printf("%c", b[i]);
+
+	printf("\n");
+	printf("%d\n", a[0]);			//输出a[0]的ASCII码
+
+	return 0;
+}
+
+
+
+
+
+#include<stdio.h>					//字符的逐个输入输出
+
+int main()
+{
+	char c[12] = { '\0' };
+	int i;
+
+	for (i = 0;i < 12;i++)			//逐个输入字符
+		scanf("%c", &c[i]);
+
+	for (i = 0;i < 12;i++)			//逐个输出字符
+		printf("%c", c[i]);
+
+	printf("\n");
+
+	return 0;
+}
+
+
+
+
+#include<stdio.h>					//二维字符数组单个字符引用
+
+int main()
+{
+	char week[7][10] = { "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satuiday" };
+	int i, j;
+
+	for (i = 0;i < 7;i++)				//依次输出各个字符串
+	{
+		for (j = 0;j < 10;j++)
+			printf("%c", week[i][j]);
+
+		printf("\n");
+	}
+
+	return 0;
+}
+
+
+
+
+
+#include<stdio.h>					//二维字符数组行的引用
+
+int main()
+{
+	char week[7][10] = { "Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Satuiday" };
+	int i;
+
+	for (i = 0;i < 7;i++)				//按行输出字符串
+	{
+		printf("%s", week[i]);
+		printf("\n");
+	}
+
+	return 0;
+}
