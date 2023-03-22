@@ -2149,3 +2149,160 @@ int main()
 
     return 0;
 }
+
+
+
+#include <stdio.h>              
+#include <string.h>
+
+// 自定义函数mypow，实现计算x的y次方
+double mypow(double x, int y)
+{
+    int i;
+    double z = 1.0;
+
+    // 循环计算x的y次方
+    for (i = 1; i <= y; i++)
+        z = z * x;
+
+    return z;
+}
+
+// 主函数
+int main()
+{
+    double x, z;
+    int y;
+
+    // 提示用户输入x和y
+    printf("输入x，y：");
+    scanf("%lf%d", &x, &y);
+
+    // 调用mypow函数，计算x的y次方
+    z = mypow(x, y);
+
+    // 输出结果
+    printf("%.2lf, %d, %.2lf", x, y, z);
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+// 自定义函数my_max，返回三个整数中的最大值
+int my_max(int a, int b, int c)
+{
+    int max;
+
+    // 比较a和b的大小，取较大值
+    if (a > b)
+        max = a;
+    else
+        max = b;
+
+    // 再比较之前的较大值和c的大小，取最大值
+    if (max < c)
+        max = c;
+
+    return max;
+}
+
+// 主函数
+int main()
+{
+    int x, y, z, m;
+
+    // 提示用户输入三个整数
+    printf("输入三个整数：");
+    scanf("%d %d %d", &x, &y, &z);
+
+    // 调用my_max函数，求出最大值
+    m = my_max(x, y, z);
+
+    // 输出最大值到控制台
+    printf("最大值为%d", m);
+
+    return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+
+// 自定义函数my_fac，用于计算n的阶乘
+double my_fac(int n)
+{
+    int i;
+    double p = 1;
+
+    // 计算n的阶乘
+    for (i = 1; i <= n; i++)
+    {
+        p *= i;
+    }
+
+    return p;
+}
+
+// 主函数
+int main()
+{
+    int n;
+    double sq, m;
+
+    // 提示用户输入一个整数n
+    printf("请输入一个整数：");
+    scanf("%d", &n);
+
+    // 调用内置函数sqrt求出n的平方根
+    sq = sqrt(n);
+
+    // 调用my_fac函数计算n的阶乘
+    m = my_fac(n);
+
+    // 输出n的平方根和阶乘到控制台
+    printf("%.2lf %.2lf", sq, m);
+
+    return 0;
+}
+
+
+
+
+
+
+#include <stdio.h>
+#include <math.h>
+
+// 自定义函数my_max，返回两个整数中的最大值
+int my_max(int x, int y)
+{
+    int max;
+
+    // 使用条件运算符（三目运算符）比较x和y的大小，取最大值
+    max = x > y ? x : y;
+
+    return max;
+}
+
+// 主函数
+int main()
+{
+    int a, b, max;
+
+    // 提示用户输入两个整数
+    printf("输入两个整数:");
+    scanf("%d %d", &a, &b);
+
+    // 调用my_max函数，求出两个整数中的最大值
+    max = my_max(a, b);
+
+    // 输出最大值到控制台
+    printf("max = %d", max);
+
+    return 0;
+}
