@@ -2843,3 +2843,85 @@ double average(double array[], int n)       //定义函数
 
     return aver;
 }
+
+
+
+#include <stdio.h>
+int my_min(int x, int y, int z);
+
+int main()      //找出最小值
+{
+    int a, b, c, min;       
+    
+    printf("输入三个整数：");       //输入数字
+    scanf("%d%d%d", &a, &b, &c);
+
+    min = my_min(a, b, c);      //利用函数找出最小值
+
+    printf("%d", min);
+
+    return 0;
+}
+
+int my_min(int x, int y, int z)     //子函数：找出三个数最小值
+{
+    int min;
+
+    if (x > y)
+        min = y;
+    else
+        min = x;
+
+    if (min > z)
+        min = z;
+
+    return min;
+}
+
+
+
+
+
+
+#include <stdio.h>
+int my_max(int x, int y);
+int my_min(int x, int y);
+
+int main()      //求最大公约数和最小公倍数
+{
+    int a, b, max, min;
+
+    printf("输入两个整数：");       //输入数字
+    scanf("%d%d", &a, &b);
+
+    max = my_max(a, b);         //调用函数分别计算最大公约数和最小公倍数
+    min = my_min(a, b);
+
+    printf("max = %d, min = %d", max, min);
+
+    return 0;
+}
+
+int my_max(int x, int y)        //子函数：求最大公约数
+{   
+    int p;
+
+    while (p != 0)      //利用欧几里得算法求最大公约数
+    {
+        p = x % y;
+        x = y;
+        y = p;
+    }
+
+    return x;
+}
+
+int my_min(int x, int y)        //子函数：求最小公倍数
+{
+    int min, z;
+
+    z = x * y;
+    min = z / my_max(x, y);     //利用了my_max函数
+
+    return min;
+}
