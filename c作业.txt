@@ -3047,3 +3047,460 @@ int main()
 
     return 0;
 }
+
+
+#include <stdio.h>
+//定义员工结构类型
+struct Employee
+{
+    char name[9];
+    char sex;
+    char birthday[12];
+    char dept[11];      //部门
+    char ProTitle[9];   //职称
+    double salary;      //工资
+    double bonus;       //奖金
+    char health;
+};
+//定义工资和奖金的统计结果
+struct Total
+{
+    char title1[10];
+    double sum1;
+
+    char title2[10];
+    double sum2;
+};
+
+#define NUM 5        //定义职工人数
+void ReadEmplo(struct Employee employee[]);     //声明自定义函数
+void WriteEmplo(struct Employee employee);
+struct Total sum(struct Employee employee[], struct Total temp);
+
+int main()
+{
+    struct Employee employee[NUM];      //定义员工数据表
+    struct Total t1 = {"基本工资：", 0, "奖金总和", 0};     //赋初值
+    int i;
+
+    ReadEmplo(employee);        //输入各员工数据
+
+    for (i = 0; i < NUM; i++)
+    {
+        WriteEmplo(employee);       //输出各员工的数据
+    }
+
+    t1 = sum(employee, t1);         //将员工工资总和，，奖金总和
+
+    printf("%s%7.2lf\n", t1.title1, t1.sum1);        //输出员工总工资
+    printf("%s%7.2lf\n", t1.title2, t1.sum2);           //输出员工奖金之和
+
+    return 0;
+}
+
+void ReadEmplo(struct Employee employee[])      //自定义员工数据输入函数
+{
+    int i;
+
+    for (i = 0; i < NUM; i++)
+    {
+        scanf("%s", employee[i].name);
+        scanf(" %c", &employee[i].sex);
+        scanf("%s", employee[i].birthday);
+        scanf("%s", employee[i].dept);
+        scanf("%s", employee[i].ProTitle);
+        scanf("%lf", &employee[i].salary);
+        scanf("%lf", &employee[i].bonus);
+        scanf(" %c", &employee[i].health);
+    }
+}
+
+void WriteEmplo(struct Employee employee)     //自定义员工数据输出函数
+{
+    printf("性名    性别    出生年月    部门    职称    工资    奖金    健康状况\n");
+    printf("%s%c%s%s%s%6.2lf%6.2lf%c", employee.name, employee.sex, employee.birthday, employee.dept, employee.ProTitle, employee.salary, employee.bonus, employee.health);
+}
+
+struct Total sum(struct Employee employee[], struct Total temp)     //自定义员工工资和奖金的总和函数
+{
+    int i;
+
+    for (i = 0; i < NUM; i++)
+    {
+        temp.sum1 = temp.sum1 + employee[i].salary;
+        temp.sum2 = temp.sum2 + employee[i].bonus;
+    }
+
+    return temp;
+}
+
+
+
+//数据处理问题中，可以用一个数据域存放不同类型的对象。
+struct Person
+{
+    int number;
+    char name[9];
+    char sex;
+    char job;
+    
+    union Category
+    {
+        int class;
+        char post[21];
+    }category;
+    
+}person;
+
+
+typedef struct
+{
+    short lever;			//缓冲区满或空的状态
+    unsigned flags;			//文件状态标志
+    char fd;				//文件描述符
+    unsigned char hold;		//如无缓冲区不读取字符
+    short size;				//缓冲区的大小
+    unsigned char *buffer;	//数据缓冲区的位置
+    unsigned char *curp;	//当前活动指针
+    unsigned istemp;		//文件临时指示器
+    short token;			//用与有效性检查
+}FILE;
+
+
+FILE *fp;
+
+if ((fp = fopen("c:\\hzk16", "rb")) == NULL)		//如果文件打开失败返回NULL指针，则提示无法打开
+{
+    printf("\nerror on open c:\\hzk16 file!");
+    
+    exit(1);		//终止程序
+}
+
+
+#include <stdio.h>
+
+int main()
+{
+    FILE *fp;
+    char ch, file_name[10];
+
+    gets(file_name);
+
+    if ((fp = fopen(file_name, "w")) == NULL)		//打开文件
+    {
+        printf("can not open this file\n");
+        return 0;										//终止程序
+    }
+
+    for (; (ch = getchar()) != '@'; )
+        fputc(ch, fp);								//输入字符到fp
+
+    fclose(fp);										//关闭文件
+
+    return 0;
+}
+
+
+#include <stdio.h>
+
+int main()
+{
+    FILE *fp;
+    char ch;
+    fp = fopen("C:\\Users\\di\\text.txt", "r");			//打开文件
+
+    if (fp == NULL)
+    {
+        printf("无法打开文件");
+
+        return 0;
+    } 
+    
+
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        putchar(ch);					//顺序读入并显示
+    }
+
+    fclose(fp);
+    return 0;
+}
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    FILE *fp;
+    char file_name[30], str[81];
+
+    printf("输入文件名：");
+
+    gets(file_name);		//从键盘输入文件名
+
+    fp = fopen(file_name, "a");			
+
+    if (fp == NULL)
+    {
+        printf("该文件不存在。");
+        return 0;
+    }
+
+    printf("请输入一个字符串：");
+    
+    gets(str);			//从键盘输入字符串
+    fputs(str, fp);		//存入指定文件
+    fclose(fp);
+
+    fp = fopen(file_name, "r");		
+
+    if (fp == NULL)
+    {
+        printf("该文件不存在。");
+        return 0;
+    }
+
+    fgets(str, 81, fp);		//读取文本
+    puts(str);			//输出屏幕
+    fclose(fp);
+
+    return 0;
+}
+
+
+//将两个学生的数据写入磁盘中，在读取，显示在屏幕上
+#include <stdio.h>
+
+struct stu			//定义学生数据
+{
+    char name[20];
+    int number;
+    int age;
+    char addr[15];
+}boy1[2], boy2[2], *pp, *qq;
+
+int main()
+{
+    FILE *fp;
+    int i;
+    pp = boy1;
+    qq = boy2;
+    fp = fopen("C:\\Users\\di\\student", "wb+");		//打开文件并读写追加数据
+
+    if (fp == NULL)
+    {
+        printf("无法打开文件。");
+        return 0;
+    }
+
+    for (i = 0; i < 2; i++, pp++)			//输入学生数据
+    {
+        scanf("%s%d%d%s", pp -> name, &pp -> number, &pp -> age, pp -> addr);
+    }
+
+    pp = boy1;			//使pp重新指向开头
+
+    fwrite(pp, sizeof(struct stu), 2, fp);		//将数据写入磁盘
+    rewind(fp);									//使指针fp返回开头
+    fread(qq, sizeof(struct stu), 2, fp);		//从磁盘读取数据到qq上
+
+    printf("\n\nname\tnumber        age      addr\n");
+
+    for (i = 0; i < 2; i++, qq++)				//打印数据
+    {
+        printf("%s\t%5d%7d       %s\n", qq -> name, qq -> number, qq -> age, qq -> addr);
+    }
+
+    fclose(fp);		//关闭文件
+
+    return 0;
+}
+
+
+
+//将学生数据随机写入磁盘中
+#include <stdio.h>
+
+struct stu			//设定学生数据
+{
+    char name[10];
+    int number;
+    int age;
+    char addr[15];
+}boy;
+
+int main()
+{
+    FILE *fp;			
+    fp = fopen("c:\\Users\\di\\stu_list.txt", "ab+");		//打开并追加二进制文件
+
+    if (fp == NULL)
+    {
+        printf("无法打开文件：");
+        return 0;
+    }
+
+    printf("请输入学生学号1到5，0结束输入：");		//输入学生学号
+    scanf("%d", &boy.number);
+
+    while (boy.number != 0)
+    {
+        printf("请输入名字、年龄、地址：\n");
+        scanf("%s%d%s", boy.name, &boy.age, boy.addr);
+
+        fseek(fp, (boy.number - 1) * sizeof(struct stu), 0);		//将文件指针移动到相应位置
+        fwrite(&boy, sizeof(struct stu), 1, fp);		//把学生数据写入文件
+
+        printf("请输入学号：");
+        scanf("%d", &boy.number);
+    }
+
+    fclose(fp);
+
+    return 0;
+}
+
+
+
+#include <stdio.h>        //24小时制转化为12小时制
+
+int main()
+{
+    int h, m;
+
+    printf("请按(h:m)格式输入二十四小时制时间：");
+    scanf("%d:%d", &h, &m);
+
+    if (h > 12)         //若输入大于12小时，则小时减十二
+    {
+        h = h - 12;
+        printf("%d:%dPM", h, m);
+    }
+    else
+    {
+        printf("%d:%dAM", h, m);
+    }
+
+    return 0;
+}
+
+
+
+#include <stdio.h>        //计算某人的精确年龄
+
+int main()
+{
+    int y1, y2, m1, m2, d1, d2, y, m, d;
+
+    printf("按y.m.d的格式输入出生年月日：");
+    scanf("%d.%d.%d", &y1, &m1, &d1);
+    printf("\n再输入当前日期：");
+    scanf("%d.%d.%d", &y2, &m2, &d2);
+
+    if (m1 > m2)
+    {
+        y = y2 - y1 - 1;
+    }
+    else
+    {
+        y = y2 - y1;
+    }
+
+    printf("%d岁", y);
+
+    return 0;
+}
+
+
+#include <stdio.h>        //任意输入n个数，输出其中最大值和最小值，并标记位置
+
+int main()
+{
+    int n, i = 1, max, min, ax, in;
+
+    scanf("%d", &n);
+
+    max = min = n;
+
+    while (n != 0)
+    {
+        scanf("%d", &n);
+        i++;
+
+        if (n > max)
+        {
+            max = n;
+            ax = i;
+        }
+
+        if (n < min)
+        {
+            min = n;
+            in = i;
+        }
+    }
+
+    printf("%d %d, %d %d", max, ax, min, in);
+
+    return 0;
+}
+
+
+#include <stdio.h>        //任意输入n个数，输出其中最大值和最小值，并标记位置
+
+int main()
+{
+    int i, sum = 0, p = 0;
+
+    for (i = 1; i <= 30; i++)
+    {
+        p = i * i;
+        sum += p;
+    }
+
+    printf("%d", sum);
+
+    return 0;
+}
+
+
+
+#include <stdio.h>        
+#include <math.h>
+int fac(int n);
+
+int main()
+{
+    double x, sum = 0, p, i, s = 1.0;
+    i = 0;
+    p = 1;
+
+    scanf("%lf", &x);
+
+    while (p >= pow(10.0, -6.0))
+    {
+        p = pow(x, 2 * i) / fac(2 * i) * s;
+        sum += p;
+        s = -s;
+        i++;
+    }
+
+    printf("cos %lf = %lf", x, sum);
+
+    return 0;
+}
+
+int fac(int n)
+{
+    int p = 1;
+
+    while (n != 0)
+    {
+        p = p * n;
+        n = n - 1;
+    }
+
+    return p;
+}
